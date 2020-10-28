@@ -2,9 +2,9 @@ import React from 'react';
 import './ListItem.scss';
 
 
-const TodoListItem = ({ item }) => {
+const ListItem = ({ item }) => {
     return (
-        <div className="todo-item-container">
+        <div className="item-container">
             <span>{item.date}</span>
             <span>{item.minute}</span>
             <span>{item.label}</span>
@@ -14,10 +14,9 @@ const TodoListItem = ({ item }) => {
             <span>{item.close}</span>
             <span>{item.average}</span>
             <span>{item.volume}</span>
-            <span>{item.notional}</span>
             <span>{item.numberOfTrades}</span>
         </div>
     );
 }
 
-export default TodoListItem;
+export default ListItem;

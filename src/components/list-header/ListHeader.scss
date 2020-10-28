@@ -1,4 +1,4 @@
-.item-container {
+.list-header-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -6,4 +6,7 @@
     grid-template-areas:
       ". . . . . . . . . ."
       ". . . . . . . . . .";
+    font-size: 18px;
+    font-weight: 600;
+    color: #080825;
 }
