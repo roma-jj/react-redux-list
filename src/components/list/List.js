@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ListItem from '../list-item/ListItem';
 import { displayAlert, loadItems } from '../../thunk/thunks';
+import Preloader from '../../shared/preloader/Preloader';
+import ListHeader from '../list-header/ListHeader';
 import './List.scss';
 
 
@@ -37,15 +39,17 @@ const List = ({ list = [], isLoading, startLoadingItems }) => {
         }
     }
     
-    const loadingMessage = <div>loading items...</div>;
     const content = (
         <div className="list-wrapper">
-            {currentItems.map((item, i) => <ListItem 
-                key={i} 
-                item={item} 
-            />)}
+            <ListHeader />
+            <div className="list-wrapper__items">
+                {currentItems.map((item, i) => <ListItem 
+                    key={i} 
+                    item={item} 
+                />)}
+            </div>
 
-            <nav>
+            <nav className="button-wraper">
                 {currentPage >= pageNumbers.length-1 ?
                 <button onClick={() => paginatePrev(pageNumber)}>previous</button>
                 :
@@ -59,7 +63,7 @@ const List = ({ list = [], isLoading, startLoadingItems }) => {
             </nav>
         </div>
     );
-    return isLoading ? loadingMessage : content;
+    return isLoading ? <div className="preloader-container"><Preloader /></div> : content;
 };
 
 const mapStateToProps = state => ({
