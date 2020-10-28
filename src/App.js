@@ -1,9 +1,11 @@
+import React from 'react';
 import './App.css';
+import List from './components/list/List';
 
 const App = () => {
   return (
     <div className="App">
-      
+      <List />
     </div>
   );
 }
